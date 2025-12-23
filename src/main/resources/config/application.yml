@@ -1,0 +1,90 @@
+# Common configuration for all microservices
+spring:
+  # MySQL Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/revhub_social_media_app?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  # JPA/Hibernate Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+  
+  # MongoDB Configuration
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/revhub_social_media_app
+      auto-index-creation: true
+  
+  # Email Configuration (Gmail SMTP)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: suhasmali456@gmail.com
+    password: twsh ntlp shgd rmzq
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  
+  # File Upload Configuration
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+# AWS S3 Configuration
+cloud:
+  aws:
+    credentials:
+      access-key: ${AWS_ACCESS_KEY}
+      secret-key: ${AWS_SECRET_KEY}
+    region:
+      static: eu-north-1
+    s3:
+      bucket: revhub-suhas-bucket
+
+# JWT Configuration
+jwt:
+  secret: revhub-secret-key-2024-change-this-in-production-to-a-very-long-random-string
+  expiration: 86400000
+
+# CORS Configuration
+cors:
+  allowed-origins: http://localhost:5173
+
+# File Upload Directory
+file:
+  upload-dir: uploads
+
+# Eureka Configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    com.revhub: DEBUG
+    org.springframework.security: DEBUG
