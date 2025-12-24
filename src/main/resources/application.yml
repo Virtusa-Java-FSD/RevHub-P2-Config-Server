@@ -10,7 +10,7 @@ spring:
     config:
       server:
         native:
-          search-locations: file:///e:/RevHub_P1/RevHub_Micro_Local/config-server/src/main/resources/config
+          search-locations: file:///e:/RevHub_P1/RevHub_Micro_Deploy/config-server/src/main/resources/config
 
 eureka:
   client:

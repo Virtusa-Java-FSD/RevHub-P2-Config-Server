@@ -3,10 +3,10 @@ spring:
   # MySQL Configuration
   datasource:
     url: jdbc:mysql://localhost:3306/revhub_social_media_app?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: root
-    password: root
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
-  
+
   # JPA/Hibernate Configuration
   jpa:
     hibernate:
@@ -16,18 +16,18 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
-  
+
   # MongoDB Configuration
   data:
     mongodb:
       uri: mongodb://localhost:27017/revhub_social_media_app
       auto-index-creation: true
-  
+
   # Email Configuration (Gmail SMTP)
   mail:
     host: smtp.gmail.com
     port: 587
-    username: suhasmali456@gmail.com
+    username: ${MAIL_USERNAME}
     password: ${MAIL_PASSWORD}
     properties:
       mail:
@@ -56,7 +56,7 @@ cloud:
 
 # JWT Configuration
 jwt:
-  secret: revhub-secret-key-2024-change-this-in-production-to-a-very-long-random-string
+  secret: ${JWT_SECRET}
   expiration: 86400000
 
 # CORS Configuration
