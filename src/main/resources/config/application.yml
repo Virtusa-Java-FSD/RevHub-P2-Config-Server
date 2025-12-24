@@ -28,14 +28,14 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: suhasmali456@gmail.com
-    password: twsh ntlp shgd rmzq
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
           auth: true
           starttls:
             enable: true
-  
+
   # File Upload Configuration
   servlet:
     multipart:
@@ -46,9 +46,9 @@ spring:
 # AWS S3 Configuration
 cloud:
   aws:
-    credentials:
-      access-key: ${AWS_ACCESS_KEY}
-      secret-key: ${AWS_SECRET_KEY}
+    # credentials:
+    #   access-key: ${AWS_ACCESS_KEY}
+    #   secret-key: ${AWS_SECRET_KEY}
     region:
       static: eu-north-1
     s3:
